@@ -1,0 +1,977 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Initial Air — Sydney HVAC & Air Conditioning</title>
+<meta name="description" content="5-star rated HVAC contractor in Revesby, Sydney. AC installation, repair & maintenance. Heating & ducted systems. Free quotes.">
+<meta name="author" content="Initial Air Pty Ltd">
+<meta property="og:site_name" content="Initial Air Pty Ltd">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0b1f3a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Initial Air">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ===== CSS Variables & Theme ===== */
+:root {
+  --radius: 0.75rem;
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  --brand: #0b1f3a;
+  --brand-foreground: #f1f5f9;
+  --primary: #0b1f3a;
+  --primary-foreground: #f1f5f9;
+  --cta: #f97316;
+  --cta-foreground: #ffffff;
+  --secondary: #f1f5f9;
+  --secondary-foreground: #0b1f3a;
+  --muted: #f8fafc;
+  --muted-foreground: #64748b;
+  --accent: #e2e8f0;
+  --accent-foreground: #0b1f3a;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #f97316;
+  --shadow-elev: 0 10px 40px -10px rgba(11, 31, 58, 0.25);
+  --gradient-hero: linear-gradient(135deg, #0b1f3a 0%, #1a365d 60%, #2a4a7f 100%);
+  --gradient-cta: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  --font-display: 'Sora', 'Inter', system-ui, sans-serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+/* ===== Reset & Base ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.5;
+}
+h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; height: auto; display: block; }
+ul { list-style: none; }
+
+/* ===== Utility Classes ===== */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
+
+/* ===== Buttons ===== */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+  white-space: nowrap; border-radius: 0.5rem; font-size: 0.875rem; font-weight: 500;
+  cursor: pointer; transition: all 0.2s; border: none; font-family: inherit;
+  padding: 0.5rem 1rem; line-height: 1.5;
+}
+.btn:disabled { opacity: 0.5; cursor: not-allowed; pointer-events: none; }
+.btn-sm { height: 2rem; padding: 0 0.75rem; font-size: 0.75rem; }
+.btn-default { height: 2.25rem; padding: 0 1rem; }
+.btn-lg { height: 2.75rem; padding: 0 1.5rem; font-size: 1rem; }
+.btn-xl { height: 3.25rem; padding: 0 2rem; font-size: 1rem; border-radius: 0.6rem; }
+.btn-cta { background: var(--gradient-cta); color: var(--cta-foreground); font-weight: 600; box-shadow: var(--shadow-elev); }
+.btn-cta:hover { opacity: 0.95; }
+.btn-hero { background: #fff; color: var(--brand); font-weight: 600; box-shadow: var(--shadow-elev); }
+.btn-hero:hover { background: rgba(255,255,255,0.95); }
+.btn-outline { background: transparent; border: 1px solid var(--border); color: var(--foreground); }
+.btn-outline:hover { background: var(--accent); }
+
+/* ===== SVG Icons (inline replacement for Lucide) ===== */
+.icon { display: inline-block; width: 1rem; height: 1rem; vertical-align: middle; flex-shrink: 0; }
+.icon-sm { width: 0.875rem; height: 0.875rem; }
+.icon-md { width: 1.25rem; height: 1.25rem; }
+.icon-lg { width: 1.5rem; height: 1.5rem; }
+.icon-xl { width: 2rem; height: 2rem; }
+.icon-2xl { width: 3.5rem; height: 3.5rem; }
+
+/* ===== Top Bar ===== */
+.topbar { background: var(--brand); color: rgba(241,245,249,0.9); font-size: 0.813rem; border-bottom: 1px solid rgba(255,255,255,0.1); display: none; }
+@media (min-width: 768px) { .topbar { display: block; } }
+.topbar-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 0.5rem 1.5rem; }
+.topbar-left, .topbar-right { display: flex; align-items: center; gap: 1.25rem; }
+.topbar a { font-weight: 600; transition: color 0.2s; }
+.topbar a:hover { color: var(--cta); }
+.topbar .star-icon { color: var(--cta); fill: var(--cta); }
+
+/* ===== Nav ===== */
+.nav { position: sticky; top: 0; z-index: 40; border-bottom: 1px solid var(--border); background: rgba(255,255,255,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 0.75rem 1.5rem; }
+.nav-logo { display: flex; align-items: center; gap: 0.5rem; }
+.nav-logo-icon { display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: 0.5rem; background: var(--brand); color: var(--brand-foreground); }
+.nav-logo-text { line-height: 1.2; }
+.nav-logo-title { font-family: var(--font-display); font-size: 1.125rem; font-weight: 700; }
+.nav-logo-sub { font-size: 0.625rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--muted-foreground); }
+.nav-links { display: none; align-items: center; gap: 2rem; font-size: 0.875rem; font-weight: 500; }
+@media (min-width: 768px) { .nav-links { display: flex; } }
+.nav-links a { transition: color 0.2s; }
+.nav-links a:hover { color: var(--cta); }
+.nav-actions { display: flex; align-items: center; gap: 0.5rem; }
+.nav-phone { display: none; align-items: center; gap: 0.5rem; font-size: 0.875rem; font-weight: 600; }
+@media (min-width: 640px) { .nav-phone { display: flex; } }
+
+/* ===== Hero ===== */
+.hero { position: relative; overflow: hidden; background: var(--gradient-hero); color: #fff; }
+.hero-bg { position: absolute; inset: 0; opacity: 0.25; mix-blend-mode: overlay; }
+.hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+.hero-inner { position: relative; display: grid; gap: 2.5rem; max-width: 1200px; margin: 0 auto; padding: 4rem 1.5rem; }
+@media (min-width: 1024px) { .hero-inner { grid-template-columns: 1.1fr 1fr; gap: 3.5rem; padding: 6rem 1.5rem; } }
+.hero-badge { display: inline-flex; align-items: center; gap: 0.5rem; border-radius: 999px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.1); padding: 0.25rem 0.75rem; font-size: 0.75rem; font-weight: 500; backdrop-filter: blur(4px); }
+.hero-badge .icon { color: var(--cta); }
+.hero h1 { margin-top: 1.25rem; font-family: var(--font-display); font-size: 2.25rem; font-weight: 700; line-height: 1.15; }
+@media (min-width: 768px) { .hero h1 { font-size: 3.75rem; } }
+.hero h1 span { color: var(--cta); }
+.hero p { margin-top: 1.25rem; max-width: 36rem; font-size: 1.125rem; color: rgba(255,255,255,0.85); }
+.hero-actions { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.hero-checks { margin-top: 2rem; display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1.5rem; font-size: 0.875rem; color: rgba(255,255,255,0.8); }
+.hero-checks span { display: flex; align-items: center; gap: 0.375rem; }
+.hero-checks .check-icon { color: var(--cta); }
+.hero-img-wrap { padding-left: 0; }
+@media (min-width: 1024px) { .hero-img-wrap { padding-left: 1rem; } }
+.hero-img-frame { border-radius: 1.5rem; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.06); padding: 0.5rem; backdrop-filter: blur(12px); box-shadow: var(--shadow-elev); }
+.hero-img-frame img { aspect-ratio: 4/3; width: 100%; border-radius: 1rem; object-fit: cover; }
+
+/* ===== Trust Bar ===== */
+.trust-bar { border-bottom: 1px solid var(--border); background: rgba(241,245,249,0.5); }
+.trust-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; max-width: 1200px; margin: 0 auto; padding: 2rem 1.5rem; }
+@media (min-width: 640px) { .trust-grid { grid-template-columns: repeat(4, 1fr); } }
+.trust-item { text-align: center; }
+.trust-value { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--brand); }
+@media (min-width: 768px) { .trust-value { font-size: 1.875rem; } }
+.trust-label { font-size: 0.625rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--muted-foreground); margin-top: 0.125rem; }
+
+/* ===== Sections ===== */
+.section { padding: 5rem 1.5rem; }
+.section-header { text-align: center; max-width: 42rem; margin: 0 auto 3rem; }
+.section-tag { font-size: 0.813rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--cta); }
+.section-title { margin-top: 0.5rem; font-size: 1.875rem; font-weight: 700; }
+@media (min-width: 768px) { .section-title { font-size: 2.25rem; } }
+.section-desc { margin-top: 0.75rem; color: var(--muted-foreground); font-size: 0.938rem; }
+
+/* ===== Service Cards ===== */
+.services-grid { display: grid; gap: 1.25rem; max-width: 1200px; margin: 3rem auto 0; padding: 0 1.5rem; }
+@media (min-width: 640px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .services-grid { grid-template-columns: repeat(3, 1fr); } }
+.svc-card { position: relative; border-radius: 1rem; border: 1px solid var(--border); background: var(--card); padding: 1.5rem; transition: transform 0.2s, box-shadow 0.2s; }
+.svc-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-elev); }
+.svc-badge { position: absolute; top: 1rem; right: 1rem; border-radius: 999px; background: rgba(249,115,22,0.1); padding: 0.125rem 0.5rem; font-size: 0.625rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--cta); }
+.svc-icon { display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: 0.75rem; background: var(--brand); color: var(--brand-foreground); }
+.svc-card h3 { margin-top: 1.25rem; font-size: 1.125rem; font-weight: 600; }
+.svc-card p { margin-top: 0.375rem; font-size: 0.875rem; color: var(--muted-foreground); }
+.svc-link { margin-top: 1rem; display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.875rem; font-weight: 600; color: var(--brand); transition: color 0.2s; }
+.svc-link:hover { color: var(--cta); }
+
+/* ===== Why Us ===== */
+.why-section { background: rgba(241,245,249,0.4); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.why-grid { display: grid; gap: 2.5rem; max-width: 1200px; margin: 0 auto; padding: 5rem 1.5rem; }
+@media (min-width: 1024px) { .why-grid { grid-template-columns: 1fr 1.1fr; } }
+.why-tag { font-size: 0.813rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--cta); }
+.why-title { margin-top: 0.5rem; font-size: 1.875rem; font-weight: 700; }
+@media (min-width: 768px) { .why-title { font-size: 2.25rem; } }
+.why-desc { margin-top: 1rem; color: var(--muted-foreground); }
+.why-cards { display: grid; gap: 1rem; }
+@media (min-width: 640px) { .why-cards { grid-template-columns: repeat(2, 1fr); } }
+.why-card { border-radius: 1rem; border: 1px solid var(--border); background: var(--card); padding: 1.25rem; }
+.why-card .check-icon { color: var(--cta); width: 1.5rem; height: 1.5rem; }
+.why-card h3 { margin-top: 0.75rem; font-weight: 600; }
+.why-card p { margin-top: 0.25rem; font-size: 0.875rem; color: var(--muted-foreground); }
+
+/* ===== Reviews ===== */
+.reviews { max-width: 1200px; margin: 0 auto; padding: 5rem 1.5rem; }
+.reviews .stars-row { display: flex; align-items: center; justify-content: center; gap: 0.25rem; margin-top: 0.75rem; }
+.reviews .stars-row .star { color: var(--cta); fill: var(--cta); width: 1.25rem; height: 1.25rem; }
+.reviews .review-count { margin-left: 0.5rem; font-size: 0.875rem; color: var(--muted-foreground); }
+.reviews-grid { display: grid; gap: 1.25rem; margin-top: 3rem; }
+@media (min-width: 768px) { .reviews-grid { grid-template-columns: repeat(3, 1fr); } }
+.review-card { border-radius: 1rem; border: 1px solid var(--border); background: var(--card); padding: 1.5rem; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+.review-card .mini-stars { display: flex; gap: 0.125rem; }
+.review-card .mini-stars .star { color: var(--cta); fill: var(--cta); width: 1rem; height: 1rem; }
+.review-card blockquote { margin-top: 0.75rem; font-size: 0.875rem; line-height: 1.6; color: var(--foreground); }
+.review-card figcaption { margin-top: 1rem; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted-foreground); }
+
+/* ===== Process ===== */
+.process-section { background: var(--brand); color: var(--brand-foreground); }
+.process-inner { max-width: 1200px; margin: 0 auto; padding: 5rem 1.5rem; }
+.process-grid { display: grid; gap: 1.5rem; margin-top: 3rem; }
+@media (min-width: 768px) { .process-grid { grid-template-columns: repeat(3, 1fr); } }
+.process-card { border-radius: 1rem; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); padding: 1.5rem; backdrop-filter: blur(4px); }
+.process-number { font-family: var(--font-display); font-size: 2.25rem; font-weight: 700; color: var(--cta); }
+.process-card h3 { margin-top: 0.75rem; font-size: 1.125rem; font-weight: 600; color: #fff; }
+.process-card p { margin-top: 0.375rem; font-size: 0.875rem; color: rgba(255,255,255,0.75); }
+
+/* ===== Quote Section ===== */
+.quote-section { max-width: 1200px; margin: 0 auto; padding: 5rem 1.5rem; }
+.quote-grid { display: grid; gap: 2.5rem; }
+@media (min-width: 1024px) { .quote-grid { grid-template-columns: 1fr 1.1fr; } }
+.quote-tag { font-size: 0.813rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--cta); }
+.quote-title { margin-top: 0.5rem; font-size: 1.875rem; font-weight: 700; }
+@media (min-width: 768px) { .quote-title { font-size: 2.25rem; } }
+.quote-desc { margin-top: 0.75rem; color: var(--muted-foreground); }
+.quote-contact { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.quote-contact-item { display: flex; align-items: flex-start; gap: 0.75rem; border-radius: 0.75rem; border: 1px solid var(--border); background: var(--card); padding: 1rem; font-size: 0.875rem; transition: border-color 0.2s; }
+.quote-contact-item:hover { border-color: var(--cta); }
+.quote-contact-item .icon-wrap { margin-top: 0.125rem; color: var(--cta); }
+.quote-contact-item .label { font-weight: 600; }
+.quote-contact-item .sublabel { color: var(--muted-foreground); }
+
+/* ===== Quote Form ===== */
+.quote-form { border-radius: 1rem; border: 1px solid var(--border); background: var(--card); padding: 1.5rem; box-shadow: var(--shadow-elev); }
+@media (min-width: 768px) { .quote-form { padding: 2rem; } }
+.quote-form h3 { font-size: 1.5rem; font-weight: 700; }
+.quote-form .subtitle { font-size: 0.813rem; color: var(--muted-foreground); margin-top: 0.25rem; }
+.form-grid { display: grid; gap: 1rem; margin-top: 1.25rem; }
+@media (min-width: 640px) { .form-grid { grid-template-columns: repeat(2, 1fr); } }
+.form-group { display: flex; flex-direction: column; gap: 0.375rem; }
+.form-group label { font-size: 0.813rem; font-weight: 500; }
+.form-group input,
+.form-group select,
+.form-group textarea {
+  height: 2.25rem; border-radius: 0.5rem; border: 1px solid var(--input);
+  background: transparent; padding: 0 0.75rem; font-size: 0.875rem; font-family: inherit;
+  color: var(--foreground); transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-group textarea { height: auto; min-height: 90px; padding: 0.5rem 0.75rem; resize: vertical; }
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { outline: none; border-color: var(--ring); box-shadow: 0 0 0 1px var(--ring); }
+.form-group input::placeholder,
+.form-group textarea::placeholder { color: var(--muted-foreground); }
+.form-group select { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 0.5rem center; padding-right: 2rem; }
+.form-full { grid-column: 1 / -1; }
+.form-footer { margin-top: 0.25rem; text-align: center; font-size: 0.75rem; color: var(--muted-foreground); }
+
+/* ===== Success State ===== */
+.quote-success { text-align: center; padding: 2rem; }
+.quote-success .success-icon { color: var(--cta); width: 3.5rem; height: 3.5rem; margin: 0 auto; }
+.quote-success h3 { margin-top: 1rem; font-size: 1.5rem; font-weight: 700; }
+.quote-success p { margin-top: 0.5rem; color: var(--muted-foreground); }
+.quote-success a { font-weight: 600; color: var(--foreground); text-decoration: underline; }
+
+/* ===== Service Areas ===== */
+.areas-section { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); background: rgba(241,245,249,0.4); }
+.areas-inner { max-width: 1200px; margin: 0 auto; padding: 4rem 1.5rem; }
+.areas-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.5rem; margin-top: 2rem; }
+.areas-tag { border-radius: 999px; border: 1px solid var(--border); background: var(--card); padding: 0.375rem 0.875rem; font-size: 0.875rem; color: var(--foreground); }
+
+/* ===== Footer ===== */
+.footer { background: var(--brand); color: var(--brand-foreground); }
+.footer-grid { display: grid; gap: 2.5rem; max-width: 1200px; margin: 0 auto; padding: 3.5rem 1.5rem; }
+@media (min-width: 768px) { .footer-grid { grid-template-columns: repeat(3, 1fr); } }
+.footer-brand { display: flex; align-items: center; gap: 0.5rem; }
+.footer-brand-icon { display: grid; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: 0.5rem; background: rgba(255,255,255,0.1); }
+.footer-brand-name { font-family: var(--font-display); font-size: 1.125rem; font-weight: 700; }
+.footer-desc { margin-top: 0.75rem; font-size: 0.875rem; color: rgba(255,255,255,0.75); max-width: 20rem; }
+.footer h3 { font-size: 0.813rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: rgba(255,255,255,0.6); }
+.footer ul { margin-top: 1rem; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.875rem; }
+.footer ul.svc-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; color: rgba(255,255,255,0.85); }
+.footer li { display: flex; align-items: flex-start; gap: 0.5rem; }
+.footer li .icon { margin-top: 0.125rem; color: var(--cta); }
+.footer a:hover { color: var(--cta); }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); }
+.footer-bottom-inner { display: flex; flex-direction: column; align-items: center; justify-content: space-between; gap: 0.5rem; max-width: 1200px; margin: 0 auto; padding: 1.25rem 1.5rem; font-size: 0.75rem; color: rgba(255,255,255,0.6); }
+@media (min-width: 640px) { .footer-bottom-inner { flex-direction: row; } }
+
+/* ===== Trust Page ===== */
+.trust-page { min-height: 100vh; background: var(--background); padding: 4rem 1.5rem; }
+.trust-page-inner { max-width: 48rem; margin: 0 auto; }
+.trust-page .back-link { font-size: 0.875rem; color: var(--muted-foreground); }
+.trust-page .back-link:hover { color: var(--foreground); }
+.trust-page h1 { margin-top: 1rem; font-size: 1.875rem; font-weight: 700; }
+.trust-page .intro { margin-top: 0.75rem; font-size: 0.875rem; color: var(--muted-foreground); }
+.trust-page section { margin-top: 2.5rem; }
+.trust-page section h2 { font-size: 1.25rem; font-weight: 600; }
+.trust-page section .content { margin-top: 0.75rem; display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.875rem; line-height: 1.6; color: var(--muted-foreground); }
+.trust-page section a { text-decoration: underline; }
+.trust-page .updated { margin-top: 3rem; font-size: 0.75rem; color: var(--muted-foreground); }
+
+/* ===== Toast ===== */
+.toast-container { position: fixed; top: 1rem; right: 1rem; z-index: 100; display: flex; flex-direction: column; gap: 0.5rem; }
+.toast { padding: 0.75rem 1rem; border-radius: 0.5rem; font-size: 0.875rem; font-weight: 500; animation: slideIn 0.3s ease; box-shadow: var(--shadow-elev); max-width: 24rem; }
+.toast-error { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+.toast-success { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+@keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes slideOut { from { transform: translateX(0); opacity: 1; } to { transform: translateX(100%); opacity: 0; } }
+
+/* ===== Spinner ===== */
+.spinner { display: inline-block; width: 1rem; height: 1rem; border: 2px solid transparent; border-top-color: currentColor; border-radius: 50%; animation: spin 0.6s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.install-banner {
+  display: none;
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: #0b1f3a;
+  color: #fff;
+  padding: 0.75rem 1rem;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.875rem;
+}
+.install-banner.show { display: flex; }
+.install-banner button {
+  border: 0;
+  border-radius: 999px;
+  background: #f97316;
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  padding: 0.5rem 0.9rem;
+  cursor: pointer;
+}
+.install-banner .dismiss {
+  background: transparent;
+  color: rgba(255,255,255,0.8);
+  padding: 0.5rem;
+}
+
+/* ===== Trust Page Visibility ===== */
+#trust-page { display: none; }
+body.show-trust #home-page { display: none; }
+body.show-trust #trust-page { display: block; }
+body.show-trust .nav { display: none; }
+body.show-trust .topbar { display: none; }
+body.show-trust .footer { display: none; }
+
+/* Sitemap XML page */
+#sitemap-page { display: none; white-space: pre; font-family: monospace; padding: 2rem; }
+</style>
+</head>
+<body>
+
+<!-- ===== TOAST CONTAINER ===== -->
+<div class="toast-container" id="toast-container"></div>
+<div class="install-banner" id="install-banner">
+  <span>Add Initial Air to your Home Screen for one-tap access.</span>
+  <span style="display:flex;gap:0.25rem;align-items:center;">
+    <button type="button" id="install-btn">Add to phone</button>
+    <button type="button" class="dismiss" id="install-dismiss" aria-label="Dismiss">✕</button>
+  </span>
+</div>
+
+<!-- ===== HOME PAGE ===== -->
+<div id="home-page">
+
+<!-- Top Bar -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-left">
+      <span style="display:flex;align-items:center;gap:0.375rem;">
+        <svg class="icon icon-sm star-icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        5.0 · 19 Google reviews
+      </span>
+      <span style="display:flex;align-items:center;gap:0.375rem;">
+        <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Licensed & insured
+      </span>
+    </div>
+    <div class="topbar-right">
+      <span style="display:flex;align-items:center;gap:0.375rem;">
+        <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Mon–Fri · 7am–3pm
+      </span>
+      <a href="tel:0414881324" style="display:flex;align-items:center;gap:0.375rem;">
+        <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        0414 881 324
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Nav -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" id="logo-home">
+      <div class="nav-logo-icon">
+        <svg class="icon icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg>
+      </div>
+      <div class="nav-logo-text">
+        <div class="nav-logo-title">Initial Air</div>
+        <div class="nav-logo-sub">HVAC · Sydney</div>
+      </div>
+    </a>
+    <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#why">Why us</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#areas">Areas</a>
+      <a href="#quote">Quote</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="tel:0414881324" class="nav-phone">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        0414 881 324
+      </a>
+      <a href="#quote" class="btn btn-cta btn-default">Free Quote</a>
+    </div>
+  </div>
+</header>
+
+<!-- Hero -->
+<section id="top" class="hero">
+  <div class="hero-bg">
+    <div style="width:100%;height:100%;background:linear-gradient(135deg, #0b1f3a 0%, #1a365d 60%, #2a4a7f 100%);"></div>
+  </div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">
+        <svg class="icon icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l1.5 4.5L18 7.5l-3.5 2.5L15.5 15 12 12.5 8.5 15l1-5L6 7.5l4.5 0L12 3z"/></svg>
+        Sydney's 5-star HVAC team · 19 happy reviews
+      </div>
+      <h1>Cool homes.<br><span>Warm winters.</span> Done right.</h1>
+      <p>Initial Air installs, repairs and services air conditioning and heating across Sydney — fast, neat, and built to last. Free quotes, honest pricing.</p>
+      <div class="hero-actions">
+        <a href="#quote" class="btn btn-cta btn-xl">Get My Free Quote <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        <a href="tel:0414881324" class="btn btn-hero btn-xl"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call 0414 881 324</a>
+      </div>
+      <div class="hero-checks">
+        <span><svg class="icon check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Same-week installs</span>
+        <span><svg class="icon check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Licensed & insured</span>
+        <span><svg class="icon check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> 5-year workmanship</span>
+      </div>
+    </div>
+    <div class="hero-img-wrap">
+      <div class="hero-img-frame">
+        <img src="hero.jpg" alt="Initial Air technician servicing an air conditioning system" loading="eager">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trust Bar -->
+<section class="trust-bar">
+  <div class="trust-grid">
+    <div class="trust-item"><div class="trust-value">5.0★</div><div class="trust-label">Google rating</div></div>
+    <div class="trust-item"><div class="trust-value">19+</div><div class="trust-label">Happy customers</div></div>
+    <div class="trust-item"><div class="trust-value">10+ yrs</div><div class="trust-label">Industry experience</div></div>
+    <div class="trust-item"><div class="trust-value">24/7</div><div class="trust-label">Emergency call-outs</div></div>
+  </div>
+</section>
+
+<!-- Services -->
+<section id="services" class="section" style="padding-bottom:3rem;">
+  <div class="section-header">
+    <div class="section-tag">What we do</div>
+    <h2 class="section-title">HVAC services for every Sydney home</h2>
+    <p class="section-desc">From a single split-system to a fully zoned ducted home — Initial Air handles the lot, end-to-end.</p>
+  </div>
+  <div class="services-grid" id="services-grid"></div>
+</section>
+
+<!-- Why Us -->
+<section id="why" class="why-section">
+  <div class="why-grid">
+    <div>
+      <div class="why-tag">Why Initial Air</div>
+      <h2 class="why-title">A team you can actually rely on</h2>
+      <p class="why-desc">We're a small, owner-run crew that treats your home like our own. Joseph and the team have built Initial Air on word-of-mouth and 5-star reviews — and we'd love to add yours next.</p>
+      <a href="#quote" class="btn btn-cta btn-lg" style="margin-top:1.5rem;">Get My Free Quote</a>
+    </div>
+    <div class="why-cards" id="why-cards"></div>
+  </div>
+</section>
+
+<!-- Recent Work -->
+<section id="work" class="section" style="background:var(--muted);">
+  <div class="section-header">
+    <div class="section-tag">Recent work</div>
+    <h2 class="section-title">Installs we're proud of</h2>
+    <p class="section-desc">A few recent jobs across Sydney — neat cabling, tidy mounts, and fully tested before we leave.</p>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;max-width:1200px;margin:0 auto;">
+    <figure style="margin:0;border-radius:0.75rem;overflow:hidden;background:#fff;box-shadow:0 12px 30px -14px rgba(11,31,58,0.25);">
+      <img src="https://images.pexels.com/photos/32588555/pexels-photo-32588555.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Technician servicing a wall-mounted split-system air conditioner" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" onerror="this.style.cssText+='background:linear-gradient(135deg,#1a365d,#2a4a7f);min-height:240px;';">
+      <figcaption style="padding:0.85rem 1rem;font-size:0.9rem;font-weight:600;color:#0b1f3a;">Service &amp; maintenance</figcaption>
+    </figure>
+    <figure style="margin:0;border-radius:0.75rem;overflow:hidden;background:#fff;box-shadow:0 12px 30px -14px rgba(11,31,58,0.25);">
+      <img src="https://images.pexels.com/photos/32497161/pexels-photo-32497161.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Technician inspecting an outdoor air conditioning unit" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" onerror="this.style.cssText+='background:linear-gradient(135deg,#1a365d,#2a4a7f);min-height:240px;';">
+      <figcaption style="padding:0.85rem 1rem;font-size:0.9rem;font-weight:600;color:#0b1f3a;">Outdoor unit installs</figcaption>
+    </figure>
+    <figure style="margin:0;border-radius:0.75rem;overflow:hidden;background:#fff;box-shadow:0 12px 30px -14px rgba(11,31,58,0.25);">
+      <img src="https://images.pexels.com/photos/8496404/pexels-photo-8496404.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Split-system outdoor condenser units mounted on a building" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;" onerror="this.style.cssText+='background:linear-gradient(135deg,#1a365d,#2a4a7f);min-height:240px;';">
+      <figcaption style="padding:0.85rem 1rem;font-size:0.9rem;font-weight:600;color:#0b1f3a;">Multi-head &amp; ducted</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- Reviews -->
+<section id="reviews" class="reviews">
+  <div class="section-header">
+    <div class="section-tag">5.0 on Google</div>
+    <h2 class="section-title">What our customers say</h2>
+    <div class="stars-row">
+      <svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <span class="review-count">19 reviews</span>
+    </div>
+  </div>
+  <div class="reviews-grid" id="reviews-grid"></div>
+</section>
+
+<!-- Process -->
+<section class="process-section">
+  <div class="process-inner">
+    <div class="section-header" style="color:#fff;">
+      <div class="section-tag">How it works</div>
+      <h2 class="section-title" style="color:#fff;">Three simple steps to comfort</h2>
+    </div>
+    <div class="process-grid" id="process-grid"></div>
+  </div>
+</section>
+
+<!-- Quote Section -->
+<section id="quote" class="quote-section">
+  <div class="quote-grid">
+    <div>
+      <div class="quote-tag">Free quote</div>
+      <h2 class="quote-title">Tell us about your job</h2>
+      <p class="quote-desc">Submit the form and we'll come back to you with a no-obligation quote. Prefer to chat? Give Joseph a ring directly.</p>
+      <div class="quote-contact">
+        <a href="tel:0414881324" class="quote-contact-item">
+          <span class="icon-wrap"><svg class="icon icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+          <div><div class="label">0414 881 324</div><div class="sublabel">Mon–Fri · 7am–3pm</div></div>
+        </a>
+        <div class="quote-contact-item">
+          <span class="icon-wrap"><svg class="icon icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+          <div><div class="label">7 Daisy St, Revesby NSW 2212</div><div class="sublabel">Servicing all of Sydney</div></div>
+        </div>
+        <div class="quote-contact-item">
+          <span class="icon-wrap"><svg class="icon icon-lg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+          <div><div class="label">Licensed & insured</div><div class="sublabel">5-year workmanship warranty</div></div>
+        </div>
+      </div>
+    </div>
+    <div id="quote-form-container">
+      <!-- Quote Form rendered by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- Service Areas -->
+<section id="areas" class="areas-section">
+  <div class="areas-inner">
+    <div class="section-header">
+      <div class="section-tag">Service areas</div>
+      <h2 class="section-title">Proudly servicing all of Sydney</h2>
+      <p class="section-desc">Based in Revesby — out to your suburb fast.</p>
+    </div>
+    <div class="areas-tags" id="areas-tags"></div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">
+        <div class="footer-brand-icon">
+          <svg class="icon icon-md" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/></svg>
+        </div>
+        <span class="footer-brand-name">Initial Air Pty Ltd</span>
+      </div>
+      <p class="footer-desc">Sydney's 5-star HVAC team. AC and heating installation, repair and maintenance, done right the first time.</p>
+    </div>
+    <div>
+      <h3>Contact</h3>
+      <ul>
+        <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><a href="tel:0414881324">0414 881 324</a></li>
+        <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>7 Daisy St, Revesby NSW 2212</li>
+        <li><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Mon–Fri · 7am – 3pm</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Services</h3>
+      <ul class="svc-list">
+        <li>AC Install</li><li>AC Repair</li>
+        <li>AC Service</li><li>Heating Install</li>
+        <li>Heating Repair</li><li>Ducted HVAC</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <p>© <span id="current-year"></span> Initial Air Pty Ltd. All rights reserved.</p>
+      <p><a href="#trust-page" id="trust-link" style="text-decoration:underline;color:inherit;">Trust & Privacy</a> · Revesby, NSW · ABN registered & insured</p>
+    </div>
+  </div>
+</footer>
+
+</div><!-- /#home-page -->
+
+<!-- ===== TRUST PAGE ===== -->
+<div id="trust-page" class="trust-page">
+  <div class="trust-page-inner">
+    <p class="back-link"><a href="#" id="back-home">← Back to home</a></p>
+    <h1>Trust &amp; Privacy</h1>
+    <p class="intro">This page is maintained by Initial Air Pty Ltd to answer common questions about how we handle information you share through this website. It is editable content from the business owner and is not an independent certification or audit.</p>
+
+    <section><h2>Who runs this site</h2><div class="content"><p>Initial Air Pty Ltd, an HVAC contractor based at 7 Daisy St, Revesby NSW 2212. Contact: <a href="tel:0414881324">0414 881 324</a>.</p></div></section>
+    <section><h2>What we collect</h2><div class="content"><p>When you submit the quote form we collect your name, email, phone number, suburb (optional), the type of service you're after, the property type (optional), and any message you include. We collect this only to respond to your quote request.</p><p>We don't run analytics trackers or advertising pixels on this site.</p></div></section>
+    <section><h2>Who can see your submission</h2><div class="content"><p>Quote submissions are stored in a private database and are visible only to Initial Air staff who handle quotes. The public website cannot read submissions back — the form is write-only for visitors.</p></div></section>
+    <section><h2>How it's protected</h2><div class="content"><p>The site is served over HTTPS. The database enforces row-level security so the public role can only insert a new quote request and cannot read, edit, or delete existing records. Submissions are validated server-side (required fields, email format, length limits) before they are accepted.</p><p style="font-size:0.75rem;">These are platform-level controls provided by our hosting and database stack. They are not a substitute for a formal security certification.</p></div></section>
+    <section><h2>Retention and deletion</h2><div class="content"><p>We keep quote requests for as long as needed to follow up and for our standard business records. If you'd like your information removed, contact us at the phone number above and we'll delete it.</p></div></section>
+    <section><h2>Reporting a security issue</h2><div class="content"><p>If you believe you've found a security problem with this site, please call <a href="tel:0414881324">0414 881 324</a> so we can address it.</p></div></section>
+    <p class="updated">Last updated: June 2026.</p>
+  </div>
+</div>
+
+<!-- ===== SITEMAP PAGE ===== -->
+<div id="sitemap-page"></div>
+
+<script>
+// ===== SVG Icon Generator =====
+function icon(name, cls) {
+  cls = cls || 'icon';
+  const svgs = {
+    snowflake: '<path d="M12 2v20M12 2L8 6M12 2l4 4M12 22l-4-4M12 22l4-4M2 12h20M2 12l4-4M2 12l4 4M22 12l-4-4M22 12l-4 4"/>',
+    wrench: '<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>',
+    sparkles: '<path d="M12 3l1.5 4.5L18 7.5l-3.5 2.5L15.5 15 12 12.5 8.5 15l1-5L6 7.5l4.5 0L12 3z"/><path d="M19 19v1M19 16v-1M16 19h1M22 19h-1"/>',
+    flame: '<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 0-5.5.06-.38.13-.75.2-1.12.05-.28.3-.43.55-.32.48.21 1.1.63 1.68 1.55C13 5.12 14 7.12 14 9.5a4 4 0 0 1-1.5 3.12"/>',
+    wind: '<path d="M9.59 4.59A2 2 0 1 1 11 8H2m10.59 11.41A2 2 0 1 0 14 16H2m15.73-8.27A2.5 2.5 0 1 1 19.5 12H2"/>',
+    arrowRight: '<line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>',
+    checkCircle: '<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>',
+    star: '<polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>',
+    shield: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
+    phone: '<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>',
+    mapPin: '<path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>',
+    clock: '<circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>',
+  };
+  return '<svg class="' + cls + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">' + (svgs[name] || '') + '</svg>';
+}
+
+// ===== Toast System =====
+function showToast(message, type) {
+  var container = document.getElementById('toast-container');
+  var toast = document.createElement('div');
+  toast.className = 'toast toast-' + (type || 'success');
+  toast.textContent = message;
+  container.appendChild(toast);
+  setTimeout(function() {
+    toast.style.animation = 'slideOut 0.3s ease forwards';
+    setTimeout(function() { toast.remove(); }, 300);
+  }, 4000);
+}
+
+// ===== Quote Form =====
+var SERVICES = [
+  "AC Installation", "AC Repair", "AC Maintenance / Service",
+  "Heating Installation", "Heating Repair", "Heating Maintenance",
+  "Ducted System", "Other / Not Sure"
+];
+var PROPERTIES = ["Home", "Apartment", "Office / Commercial", "Other"];
+
+function renderQuoteForm() {
+  var container = document.getElementById('quote-form-container');
+  container.innerHTML = '' +
+    '<form id="quote-form-el" class="quote-form" onsubmit="handleQuoteSubmit(event)">' +
+      '<h3>Get your free quote</h3>' +
+      '<p class="subtitle">Fast response · No-obligation pricing · Licensed & insured</p>' +
+      '<div class="form-grid" style="margin-top:1rem;">' +
+        '<div class="form-group"><label for="full_name">Full name *</label><input id="full_name" required placeholder="Jane Smith"></div>' +
+        '<div class="form-group"><label for="phone">Phone *</label><input id="phone" required type="tel" placeholder="04xx xxx xxx"></div>' +
+        '<div class="form-group"><label for="email">Email *</label><input id="email" required type="email" placeholder="you@email.com"></div>' +
+        '<div class="form-group"><label for="suburb">Suburb</label><input id="suburb" placeholder="Revesby"></div>' +
+        '<div class="form-group"><label for="service_type">Service needed *</label><select id="service_type" required><option value="">Select a service</option>' + SERVICES.map(function(s) { return '<option value="' + s + '">' + s + '</option>'; }).join('') + '</select></div>' +
+        '<div class="form-group"><label for="property_type">Property type</label><select id="property_type"><option value="">Select</option>' + PROPERTIES.map(function(s) { return '<option value="' + s + '">' + s + '</option>'; }).join('') + '</select></div>' +
+        '<div class="form-group form-full"><label for="message">Tell us about the job</label><textarea id="message" rows="4" placeholder="E.g. 3-bedroom home, need split-system in main living area."></textarea></div>' +
+      '</div>' +
+      '<button type="submit" class="btn btn-cta btn-xl" style="width:100%;margin-top:1rem;" id="quote-submit-btn">Get My Free Quote</button>' +
+      '<p class="form-footer" style="margin-top:0.75rem;">We typically respond within a few hours during business hours.</p>' +
+    '</form>';
+}
+
+function handleQuoteSubmit(e) {
+  e.preventDefault();
+  var btn = document.getElementById('quote-submit-btn');
+  var fullName = document.getElementById('full_name').value.trim();
+  var email = document.getElementById('email').value.trim();
+  var phone = document.getElementById('phone').value.trim();
+  var serviceType = document.getElementById('service_type').value;
+
+  if (!fullName || !email || !phone || !serviceType) {
+    showToast('Please fill in name, email, phone and service.', 'error');
+    return;
+  }
+
+  // Simulate loading
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> Sending…';
+
+  // Collect form data
+  var data = {
+    full_name: fullName,
+    email: email,
+    phone: phone,
+    suburb: document.getElementById('suburb').value.trim(),
+    service_type: serviceType,
+    property_type: document.getElementById('property_type').value,
+    message: document.getElementById('message').value.trim()
+  };
+
+  try {
+    var quotes = JSON.parse(localStorage.getItem('initialair-quotes') || '[]');
+    quotes.push(Object.assign({ created_at: new Date().toISOString() }, data));
+    localStorage.setItem('initialair-quotes', JSON.stringify(quotes));
+  } catch (err) {}
+
+  var smsBody = encodeURIComponent(
+    'Quote request from ' + data.full_name +
+    '\nPhone: ' + data.phone +
+    '\nEmail: ' + data.email +
+    '\nService: ' + data.service_type +
+    (data.suburb ? '\nSuburb: ' + data.suburb : '') +
+    (data.property_type ? '\nProperty: ' + data.property_type : '') +
+    (data.message ? '\n' + data.message : '')
+  );
+
+  setTimeout(function() {
+    btn.disabled = false;
+    var container = document.getElementById('quote-form-container');
+    container.innerHTML = '' +
+      '<div class="quote-form quote-success">' +
+        '<svg class="success-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>' +
+        '<h3>Thanks — we got it!</h3>' +
+        '<p>Saved on this phone. For urgent jobs, ring us on <a href="tel:0414881324" style="font-weight:600;color:var(--foreground);text-decoration:underline;">0414 881 324</a>.</p>' +
+        '<a class="btn btn-cta btn-xl" style="margin-top:1rem;" href="sms:0414881324?body=' + smsBody + '">Text this quote to Joseph</a>' +
+      '</div>';
+    showToast("Quote saved on your phone.", 'success');
+  }, 600);
+}
+
+// ===== Render Services =====
+function renderServices() {
+  var services = [
+    { icon: 'snowflake', title: 'AC Installation', body: 'Split-systems, multi-head & ducted units. Tidy installs, all brands.', popular: true },
+    { icon: 'wrench', title: 'AC Repair', body: 'Fast diagnosis on no-cool, leaks, error codes and noisy units.' },
+    { icon: 'sparkles', title: 'AC Maintenance', body: 'Annual service & deep cleans to keep your system running efficiently.' },
+    { icon: 'flame', title: 'Heating Installation', body: 'Reverse-cycle and ducted heating designed for Sydney winters.' },
+    { icon: 'wrench', title: 'Heating Repair', body: 'Get warm again — same-week heating diagnostics & repair.' },
+    { icon: 'wind', title: 'Ducted HVAC', body: 'Whole-home ducted air conditioning, zoning and smart controls.' }
+  ];
+
+  var grid = document.getElementById('services-grid');
+  grid.innerHTML = services.map(function(s) {
+    return '' +
+      '<div class="svc-card">' +
+        (s.popular ? '<span class="svc-badge">Popular</span>' : '') +
+        '<div class="svc-icon">' + icon(s.icon, 'icon icon-lg') + '</div>' +
+        '<h3>' + s.title + '</h3>' +
+        '<p>' + s.body + '</p>' +
+        '<a href="#quote" class="svc-link">Get a quote ' + icon('arrowRight', 'icon icon-sm') + '</a>' +
+      '</div>';
+  }).join('');
+}
+
+// ===== Render Why Us =====
+function renderWhyUs() {
+  var items = [
+    { t: 'Done once, done right', b: 'Neat installs, clean cable runs, properly commissioned — no shortcuts.' },
+    { t: 'Straight pricing', b: 'Clear quotes upfront. No hidden fees, no surprises on invoice day.' },
+    { t: 'Local & reliable', b: 'Revesby-based, servicing all of Sydney. We turn up when we say we will.' },
+    { t: 'All major brands', b: 'Daikin, Mitsubishi, Fujitsu, Panasonic, LG, Hitachi & more.' }
+  ];
+
+  var grid = document.getElementById('why-cards');
+  grid.innerHTML = items.map(function(i) {
+    return '' +
+      '<div class="why-card">' +
+        icon('checkCircle', 'check-icon') +
+        '<h3>' + i.t + '</h3>' +
+        '<p>' + i.b + '</p>' +
+      '</div>';
+  }).join('');
+}
+
+// ===== Render Reviews =====
+function renderReviews() {
+  var reviews = [
+    { name: 'Verified Google Review', body: 'Great service from the boys at Initial Air! The team diligently communicated and efficiently delivered quality results. Would highly recommend for anyone with aircon needs.' },
+    { name: 'Verified Google Review', body: 'Joseph and his team were amazing, very quick, and cost effective. I highly recommend their service!' },
+    { name: 'Verified Google Review', body: 'Quick installation and great service, just made it in time for the summer!' }
+  ];
+
+  var grid = document.getElementById('reviews-grid');
+  grid.innerHTML = reviews.map(function(r) {
+    var stars = '';
+    for (var i = 0; i < 5; i++) {
+      stars += '<svg class="star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>';
+    }
+    return '' +
+      '<figure class="review-card">' +
+        '<div class="mini-stars">' + stars + '</div>' +
+        '<blockquote>"' + r.body + '"</blockquote>' +
+        '<figcaption>' + r.name + '</figcaption>' +
+      '</figure>';
+  }).join('');
+}
+
+// ===== Render Process =====
+function renderProcess() {
+  var steps = [
+    { n: '01', t: 'Tell us about the job', b: 'Fill the quick form or give us a call. We\'ll ask a few questions.' },
+    { n: '02', t: 'Free on-site quote', b: 'We come out, measure up and recommend the best system for your space.' },
+    { n: '03', t: 'Clean, neat install', b: 'Same-week bookings where possible. Tidy work, fully tested before we leave.' }
+  ];
+
+  var grid = document.getElementById('process-grid');
+  grid.innerHTML = steps.map(function(s) {
+    return '' +
+      '<div class="process-card">' +
+        '<div class="process-number">' + s.n + '</div>' +
+        '<h3>' + s.t + '</h3>' +
+        '<p>' + s.b + '</p>' +
+      '</div>';
+  }).join('');
+}
+
+// ===== Render Areas =====
+function renderAreas() {
+  var areas = [
+    'Revesby', 'Padstow', 'Bankstown', 'Panania', 'Picnic Point', 'East Hills',
+    'Milperra', 'Condell Park', 'Hurstville', 'Bexley', 'Kogarah', 'Sutherland',
+    'Liverpool', 'Parramatta', 'Sydney CBD', 'Eastern Suburbs', 'Inner West', 'Northern Beaches'
+  ];
+
+  var container = document.getElementById('areas-tags');
+  container.innerHTML = areas.map(function(a) {
+    return '<span class="areas-tag">' + a + '</span>';
+  }).join('');
+}
+
+// ===== Trust Page Navigation =====
+document.getElementById('trust-link').addEventListener('click', function(e) {
+  e.preventDefault();
+  document.body.classList.add('show-trust');
+  window.scrollTo(0, 0);
+});
+
+document.getElementById('back-home').addEventListener('click', function(e) {
+  e.preventDefault();
+  document.body.classList.remove('show-trust');
+});
+
+// Also handle the logo
+document.getElementById('logo-home').addEventListener('click', function(e) {
+  document.body.classList.remove('show-trust');
+});
+
+// ===== Sitemap =====
+(function() {
+  var sitemapXml = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url><loc>/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>\n</urlset>';
+  document.getElementById('sitemap-page').textContent = sitemapXml;
+})();
+
+// ===== Init =====
+document.getElementById('current-year').textContent = new Date().getFullYear();
+renderQuoteForm();
+renderServices();
+renderWhyUs();
+renderReviews();
+renderProcess();
+renderAreas();
+
+// ===== Structured Data =====
+(function() {
+  var ld = {
+    "@context": "https://schema.org",
+    "@type": "HVACBusiness",
+    "name": "Initial Air Pty Ltd",
+    "telephone": "+61414881324",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "7 Daisy St",
+      "addressLocality": "Revesby",
+      "addressRegion": "NSW",
+      "postalCode": "2212",
+      "addressCountry": "AU"
+    },
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "19" },
+    "priceRange": "$$",
+    "openingHours": "Mo-Fr 07:00-15:00"
+  };
+  var script = document.createElement('script');
+  script.type = 'application/ld+json';
+  script.textContent = JSON.stringify(ld);
+  document.head.appendChild(script);
+})();
+
+// ===== Handle sitemap.xml route (for spa-like behavior) =====
+if (window.location.pathname === '/sitemap.xml') {
+  document.getElementById('home-page').style.display = 'none';
+  document.getElementById('sitemap-page').style.display = 'block';
+  document.querySelector('.nav').style.display = 'none';
+  document.querySelector('.topbar').style.display = 'none';
+  document.querySelector('.footer').style.display = 'none';
+}
+
+// ===== Handle /trust route =====
+if (window.location.pathname === '/trust' || window.location.hash === '#trust') {
+  document.body.classList.add('show-trust');
+}
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js').catch(function() {});
+}
+
+(function() {
+  var banner = document.getElementById('install-banner');
+  var installBtn = document.getElementById('install-btn');
+  var dismissBtn = document.getElementById('install-dismiss');
+  if (!banner || localStorage.getItem('initialair-install-dismissed')) return;
+
+  var deferredPrompt = null;
+  var isStandalone = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+  if (isStandalone) return;
+
+  window.addEventListener('beforeinstallprompt', function(e) {
+    e.preventDefault();
+    deferredPrompt = e;
+    banner.classList.add('show');
+  });
+
+  var isIos = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  if (isIos) {
+    installBtn.textContent = 'How to add';
+    banner.classList.add('show');
+  }
+
+  installBtn.addEventListener('click', function() {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      deferredPrompt.userChoice.finally(function() {
+        deferredPrompt = null;
+        banner.classList.remove('show');
+      });
+      return;
+    }
+    showToast('On iPhone: tap Share, then Add to Home Screen.', 'success');
+  });
+
+  dismissBtn.addEventListener('click', function() {
+    localStorage.setItem('initialair-install-dismissed', '1');
+    banner.classList.remove('show');
+  });
+})();
+</script>
+
+</body>
+</html>
